@@ -28,13 +28,6 @@ function startTimer() {
     }, 1000);
 }
 
-
-
-// //Scorepage Function
-// function goScorePage() {
-
-// }
-
 //Start Quiz function
 //Start Questions after clicking the start button 
 function startQuestions() {
@@ -56,39 +49,47 @@ function getQuestionsText() {
   document.querySelector("#btnAnswer3").textContent = questions[questionNumber].answer3;
 }
 
-//Function that checks checks if input was correct, updates counter and moves to the next question.
-function questionsAnswer(answer) {
-  if (answer === questions[questionNumber].correctAnswer) {
-  quizFeedback ("Correct!")
-    //add SFX here;
-    scoreCount++;
-    questionNumber++
-  } else {
-  quizFeedback("Wrong!")
-    //sfx
-    timerCount = timerCount -10; //Reduces timer by ten seconds on wrong answer
-    document.querySelector("#time").textContent = timerCount; //updates timer;
-    questionNumber++
-  }
-  if (questionNumber> questions.length - 1) {
-    goScorePage()  
-  } else {
-    getQuestionsText()
-  }
-}
 //Feedback for each answer prompt
 //Shows the feedback message for 2 seconds
-function quizFeedback(feedback) {
-  document.querySelector("quizFeedback").textContent = feedback;
-  document.querySelector("#quizFeedback").setAttribute("class", "visible");
+function quizFeedback(text) {
+  document.querySelector("#quizfeedback").textContent = text;
+  document.querySelector("#quizfeedback").setAttribute("class", "visible");
   setTimeout(function() {
-    document.querySelector("#quizFeedback").setAttribute("class", "hide");
+    document.querySelector("#quizfeedback").setAttribute("class", "hide");
 },  
-  1500);
+  2000);
 }
+
+//Function that checks checks if input was correct, updates scores counter and moves to the next question.
+function questionsAnswer(answer) {
+  if (questions[questionNumber]["answer" + answer] === questions[questionNumber].correctAnswer) { //first selects the question object based on the questionNumber array starting at 0, 
+    //["answer" + answer] this here will create a string concatentation of "answer3" and with questions[questionNumber]["answer3"] will retrieve "Arrays"
+    console.log("Correct!");
+    //SFX correct 
+    quizFeedback("Correct!")
+    scoreCount++;
+    questionNumber++;
+  } else {
+    console.log("Wrong!");
+    quizFeedback("Wrong!")
+    //sfx incorrect 
+    timerCount -= 10; // Reduce timer by ten seconds on wrong answer
+    document.querySelector("#timer").textContent = timerCount; // Updates timer
+    questionNumber++;
+  }
+  if (questionNumber > questions.length - 1) {
+    goScorePage();
+  } else {
+    getQuestionsText();
+  }
+}
+
+
 
 function goScorePage() {
   console.log("Score page");
+  clearInterval(timer);
+  
 }
 
 //Event Listerners 
