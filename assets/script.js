@@ -13,7 +13,7 @@ var questionNumber; //defines which question to start
 // final-score
 // initials
 // start
-// feedback
+/  quizFeedback
 
 //Timer function 
 function startTimer() {
@@ -59,12 +59,12 @@ function getQuestionsText() {
 //Function that checks checks if input was correct, updates counter and moves to the next question.
 function questionsAnswer(answer) {
   if (answer === questions[questionNumber].correctAnswer) {
-    feedback ("Correct!")
+  quizFeedback ("Correct!")
     //add SFX here;
     scoreCount++;
     questionNumber++
   } else {
-    feedback("Wrong!")
+  quizFeedback("Wrong!")
     //sfx
     timerCount = timerCount -10; //Reduces timer by ten seconds on wrong answer
     document.querySelector("#time").textContent = timerCount; //updates timer;
@@ -76,7 +76,11 @@ function questionsAnswer(answer) {
     getQuestionsText()
   }
 }
-
+//Feedback for each answer prompt
+//Shows the feedback message for 2 seconds
+function quizFeedback() {
+  document.querySelector("quizFeedback")
+}
 
 //Event Listerners 
 
