@@ -4,6 +4,8 @@ var timerCount = 0;
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
+var highScores; //for the highscores, saving systems
+var EnterInitials; 
 
 //Ids
 // timer
@@ -86,7 +88,7 @@ function questionsAnswer(answer) {
     document.querySelector("#timer").textContent = timerCount; // Updates timer
     questionNumber++;
   }
-  if (questionNumber > questions.length - 1) {
+  if (questionNumber > questions.length - 1) { //array indices start from 0 the last question will have an index of questions.length
     goScorePage();
   } else {
     getQuestionsText();
@@ -107,7 +109,8 @@ function goScorePage() {
     " correct answers! ";
 }
 
-//Function for score initials 
+//Function for score and saving scores to local storage 
+function 
 
 
 
