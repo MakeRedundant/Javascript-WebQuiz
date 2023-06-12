@@ -1,6 +1,6 @@
 //Global Variables
 
-var timerCount;
+var timerCount = 0;
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
@@ -84,13 +84,14 @@ function questionsAnswer(answer) {
   }
 }
 
-
-
 function goScorePage() {
-  console.log("Score page");
+  console.log("You are at the Score page");
   clearInterval(timer);
-  
-}
+  document.querySelector("#questions").setAttribute("class", "hide");
+  document.querySelector("#score-screen").setAttribute("class","visible")
+  document.querySelector("#final-score").textContent = timerCount; ", with " + scoreCount + "out of" + questions.length + "correct answers!";
+} 
+
 
 //Event Listerners 
 
