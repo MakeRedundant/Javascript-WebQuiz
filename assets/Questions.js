@@ -7,7 +7,7 @@ var questions = [
       answer1: "Strings",
       answer2: "Null",
       answer3: "Arrays",
-      correctAnswer: "Arrays",
+      correctAnswer: "Arrays"
     },
     {
       question: "What keyword could you use to declare a variable in Javascript?",
@@ -15,7 +15,7 @@ var questions = [
       answer1: "Const",
       answer2: "Var",
       answer3: "All the above",
-      correctAnswer: "All the above",
+      correctAnswer: "All the above"
     },
     {
       question: "String values must be enclosed within ______ when being assigned to variables",
@@ -23,7 +23,7 @@ var questions = [
       answer1: "Quotes",
       answer2: "Commas",
       answer3: "Parentheses",
-      correctAnswer: "Curly brackets",
+      correctAnswer: "Quotes"
     },
     {
       question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -31,15 +31,15 @@ var questions = [
       answer1: "Terminal / bash",
       answer2: "For loops",
       answer3: "Console.log",
-      correctAnswer: "Console.log",
+      correctAnswer: "Console.log"
     },
     {
       question: "In which tab can you view the contents of the local storage in a browser?",
       answer0: "Console",
-      answer1: "Elements",
-      answer2: "Network",
-      answer3: "Application",
-      correctAnswer: "Application",
+      answer1: "Network",
+      answer2: "Application",
+      answer3: "Elements",
+      correctAnswer: "Application"
   },
     
   ];
