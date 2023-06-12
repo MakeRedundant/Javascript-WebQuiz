@@ -1,6 +1,6 @@
 //Global Variables
 
-var timerCount = 0;
+var timerCount;
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
@@ -28,12 +28,15 @@ function startTimer() {
     }, 1000);
 }
 
+
+
 // //Scorepage Function
 // function goScorePage() {
 
 // }
 
-//Start Questions function after clicking the start button 
+//Start Quiz function
+//Start Questions after clicking the start button 
 function startQuestions() {
 scoreCount= 0,
 questionNumber= 0, 
@@ -53,18 +56,26 @@ function getQuestionsText() {
   document.querySelector("#btnAnswer3").textContent = questions[questionNumber].answer3;
 }
 
-// function resetGame () {
-
-// }
-
-// Start Quiz function
-function startQuiz() {
-  document.querySelector("#start-quiz").classList.add("hide");
-  document.querySelector("#questions").classList.remove("hide");
-  startTimer(); // Start the timer when the quiz starts
-  getQuestionsText();
+//Function that checks checks if input was correct, updates counter and moves to the next question.
+function questionsAnswer(answer) {
+  if (answer === questions[questionNumber].correctAnswer) {
+    feedback ("Correct!")
+    //add SFX here;
+    scoreCount++;
+    questionNumber++
+  } else {
+    feedback("Wrong!")
+    //sfx
+    timerCount = timerCount -10; //Reduces timer by ten seconds on wrong answer
+    document.querySelector("#time").textContent = timerCount; //updates timer;
+    questionNumber++
+  }
+  if (questionNumber> questions.length - 1) {
+    goScorePage()  
+  } else {
+    getQuestionsText()
+  }
 }
-
 
 
 //Event Listerners 
@@ -78,21 +89,21 @@ document.querySelector("#start").addEventListener("click", function() {
 document.querySelector("#btnAnswer0").addEventListener("click", function(event) {
   event.preventDefault();
   console.log("Answer 0 button clicked");
-  questionsResolve(0)
+  questionsAnswer(0)
 });
 
 document.querySelector("#btnAnswer1").addEventListener("click", function(event) {
   event.preventDefault();
   console.log("Answer 1 button clicked");
-  questionsResolve(1)
+  questionsAnswer(1)
 });
 document.querySelector("#btnAnswer2").addEventListener("click", function(event) {
   event.preventDefault();
   console.log("Answer 2 button clicked");
-  questionsResolve(2)
+  questionsAnswer(2)
 });
 document.querySelector("#btnAnswer3").addEventListener("click", function(event) {
   event.preventDefault();
   console.log("Answer 3 button clicked");
-  questionsResolve(3);
+  questionsAnswer(3);
 });
