@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Coding Quiz</title>
+
+    <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+
+<body>
+    <div class="high-scores">
+        <a href="./Highscores.html">View Highscores</a>
+    </div>
+    <div class="time-countdown">Time: <span id="timer">0</span></div>
+
+    <div class="quiz-section">
+        <div id="start-quiz" class="visible">
+            <h1>Web Development Quiz Challenge</h1>
+            <p>
+                Answers the following Javascript questions within the time limit!<br />
+                Be careful an incorrect answer will reduce your time by 10 seconds
+                <br />
+                Scores can be saved and viewed <br /> 
+                Good luck!
+            </p>
+            <button id="start">Start Quiz</button>
+        </div>
+        <div id="questions" class="hide">
+            <h2 id="question-title"></h2>
+            <div id="answers" class="answers"></div>
+        </div>
+
+        <div id="score-screen" class="hide">
+            <h2>Finished !!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+            <p>
+                Enter your initials:
+                <input type="text" id="initials" maxlength="2" />
+                <button id="submit">Submit</button>
+            </p>
+        </div>
+
+        <div id="feedback" class="hide"></div>
+    </div>
+    <script src="assets/Questions.js"></script>
+    <script src="./assets/script.js"></script>
+ 
+</body>
+
+</html>
