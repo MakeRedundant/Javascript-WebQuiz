@@ -109,13 +109,6 @@ function goScorePage() {
     " correct answers! ";
 }
 
-//Function for score and saving scores to local storage 
-function 
-
-
-
-
-
 //Event Listerners
 //Start Button
 document.querySelector("#start").addEventListener("click", function () {
