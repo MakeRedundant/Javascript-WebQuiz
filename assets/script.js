@@ -107,6 +107,10 @@ function goScorePage() {
     " correct answers! ";
 }
 
+//Function for score initials 
+
+
+
 
 
 //Event Listerners
