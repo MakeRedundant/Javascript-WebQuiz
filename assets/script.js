@@ -13,7 +13,7 @@ var questionNumber; //defines which question to start
 // final-score
 // initials
 // start
-/  quizFeedback
+//  quizFeedback
 
 //Timer function 
 function startTimer() {
@@ -78,8 +78,17 @@ function questionsAnswer(answer) {
 }
 //Feedback for each answer prompt
 //Shows the feedback message for 2 seconds
-function quizFeedback() {
-  document.querySelector("quizFeedback")
+function quizFeedback(feedback) {
+  document.querySelector("quizFeedback").textContent = feedback;
+  document.querySelector("#quizFeedback").setAttribute("class", "visible");
+  setTimeout(function() {
+    document.querySelector("#quizFeedback").setAttribute("class", "hide");
+},  
+  1500);
+}
+
+function goScorePage() {
+  console.log("Score page");
 }
 
 //Event Listerners 
