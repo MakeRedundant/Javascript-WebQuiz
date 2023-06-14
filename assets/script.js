@@ -1,5 +1,4 @@
 //Global Variables
-
 var timerCount = 0;
 var start; //for the start button
 var scoreCount; //defines score
@@ -7,15 +6,11 @@ var questionNumber; //defines which question to start
 var highScores; //for the highscores, saving systems
 var EnterInitials; 
 
-//Ids
-// timer
-// questions
-// answers
-// score-screen
-// final-score
-// initials
-// start
-//  quizFeedback
+var startButton = document.querySelector("#start");
+var btnAnswer0 = document.querySelector("#btnAnswer0");
+var btnAnswer1 = document.querySelector("#btnAnswer1");
+var btnAnswer2 = document.querySelector("#btnAnswer2");
+var btnAnswer3 = document.querySelector("#btnAnswer3");
 
 //Timer function
 function startTimer() {
@@ -94,7 +89,6 @@ function questionsAnswer(answer) {
     getQuestionsText();
   }
 }
-
 function goScorePage() {
   console.log("You are at the Score page");
   clearInterval(timer);
@@ -108,6 +102,10 @@ function goScorePage() {
     questions.length +
     " correct answers! ";
 }
+
+//Initials function stuff 
+
+
 
 //Event Listerners
 //Start Button
