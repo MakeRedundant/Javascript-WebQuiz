@@ -1,5 +1,5 @@
 //Global Variables
-var timerCount = 0;
+var timerCount = 0; //timer is initially set at 0 before being set at 45
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
@@ -11,6 +11,10 @@ var btnAnswer0 = document.querySelector("#btnAnswer0");
 var btnAnswer1 = document.querySelector("#btnAnswer1");
 var btnAnswer2 = document.querySelector("#btnAnswer2");
 var btnAnswer3 = document.querySelector("#btnAnswer3");
+var EnterInitials = document.querySelector("#initials");
+var submit = document.querySelector("#submit");
+
+// Sounds 
 
 //Timer function
 function startTimer() {
@@ -103,6 +107,25 @@ function goScorePage() {
     " correct answers! ";
 }
 
+//High Scores function
+function goHighscores() {
+  if (document.querySelector("#initials"). value =="") {
+    feedback ("Enter your initials here")
+    
+  } else {
+    EnterInitials = (document.querySelector("#initials").value);
+    saveHighscore();
+    window.location.href="Highscores.html";
+  }
+}
+
+function saveHighscore() {
+  var scoreCount =
+  {
+    initials: EnterInitials, scoreCount: timerCount
+  }
+}
+
 //Initials function stuff 
 
 
@@ -143,3 +166,19 @@ document
     console.log("Answer 3 button clicked");
     questionsAnswer(3);
   });
+
+  // Initials submit 
+  //One for click and keydown
+  document.querySelector("#initials").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      console.log("Initials submitted");
+      goHighscores()
+    }
+  });
+  document.querySelector("#submit").addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("Initials submitted");
+    goHighscores()
+  });
+
