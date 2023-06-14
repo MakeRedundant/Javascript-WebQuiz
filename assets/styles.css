@@ -50,9 +50,9 @@ body {
     list-style: decimal inside none;
   }
   
-  li:nth-child(odd) {
+  /* li:nth-child(odd) {
     background-color: #f3edfc;
-  }
+  } */
   
   .quiz-section {
     margin-top: 100px;
