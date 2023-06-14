@@ -109,8 +109,8 @@ function goScorePage() {
 
 //High Scores function
 function goHighscores() {
-  if (document.querySelector("#initials"). value =="") {
-    feedback ("Enter your initials here")
+  if (document.querySelector("#initials"). value ==="") {
+    quizFeedback("Please, enter your initials here to save your score")
     
   } else {
     EnterInitials = (document.querySelector("#initials").value);
