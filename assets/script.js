@@ -3,7 +3,7 @@ var timerCount = 0; //timer is initially set at 0 before being set at 45
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
-var highScores; //for the highscores, saving systems
+var highScores = []; //for the highscores, saving systems, need to set as an empty array or it will return Uncaught TypeError: Cannot read properties of undefined (reading 'push')
 var EnterInitials; 
 
 var startButton = document.querySelector("#start");
@@ -120,15 +120,23 @@ function goHighscores() {
 }
 
 function saveHighscore() {
-  var scoreCount =
+  var scoreCount=
   {
     initials: EnterInitials, scoreCount: timerCount
   }
+  highScores.push(scoreCount);
+  highScores = JSON.stringify(highScores);
+  localStorage.setItem("highscores", highScores);
+  console.log("scored saved");
 }
 
-//Initials function stuff 
-
-
+function checkHighScore() {
+  if (localStorage.getItem("highscores") !==null) {
+    highScores = JSON.parse(localStorage.getItem("highscores"));
+  } else {
+    highScores = [];
+  }
+}
 
 //Event Listerners
 //Start Button
@@ -173,7 +181,7 @@ document
     if (event.key === "Enter") {
       event.preventDefault();
       console.log("Initials submitted");
-      goHighscores()
+      goHighscores();
     }
   });
   document.querySelector("#submit").addEventListener("click", function(event) {
