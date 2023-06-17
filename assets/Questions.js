@@ -2,20 +2,20 @@
 var questions = [
     //Array called questions holding objects which contain the quiz questions
     {
-      question: "Which of these is not a data type in Javascript?",
+      question: "Commonly used data types DO NOT include:",
       answer0: "Numbers",
       answer1: "Strings",
       answer2: "Null",
-      answer3: "Arrays",
-      correctAnswer: "Arrays"
+      answer3: "Booleans",
+      correctAnswer: "Booleans"
     },
     {
-      question: "What keyword could you use to declare a variable in Javascript?",
-      answer0: "Let",
-      answer1: "Const",
-      answer2: "Var",
-      answer3: "All the above",
-      correctAnswer: "All the above"
+      question: "The condition in an if / else statement is enclosed within _____",
+      answer0: "Quotes",
+      answer1: "Paraentheses",
+      answer2: "Square brackets",
+      answer3: "Curly brackets",
+      correctAnswer: "Curly brackets"
     },
     {
       question: "String values must be enclosed within ______ when being assigned to variables",
