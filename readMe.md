@@ -1,4 +1,4 @@
-## Password Generator
+## Javascript Web development Quiz
 ## Description
 This is a website made to test the user's knowledge in javascript through a online multiple choice style quiz, users will have 45 seconds to answers a series of questions
 in which they will be penalise by a reduction of 10 seconds for every incorrect response, responses will have feedback through sound and text whether or not they have been made correct or incorrect. Users can save their scores through local storage and repeat for a potentially higher score with the added highscore list.
