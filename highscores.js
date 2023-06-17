@@ -47,7 +47,6 @@ document.querySelector("#clear").addEventListener("click", function (event) {
   highScoresClear();
   console.log("Scores cleared");
 });
-
 document.querySelector("a").addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.setItem("highscores", JSON.stringify(highScores));
