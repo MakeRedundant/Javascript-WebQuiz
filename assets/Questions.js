@@ -49,4 +49,13 @@ var questions = [
 //the = assignment operator assigns new values to the innerHTML property the <button id= btnAnswer0-3>
 //the dynamically created buttosn will interact with the getQuestionsText () function where the buttons will have its textcontent set to the value stored in 
 // questions[questionNumber].answer0-3 which is the questions array
-document.querySelector("#answers").innerHTML = "<button id='btnAnswer0'></button><button id='btnAnswer1'></button><button id='btnAnswer2'></button><button id='btnAnswer3'></button>";
+
+document.querySelector("#answers").innerHTML = 
+`
+  <ul>
+    <li><button id="btnAnswer0"></button></li>
+    <li><button id="btnAnswer1"></button></li>
+    <li><button id="btnAnswer2"></button></li>
+    <li><button id="btnAnswer3"></button></li>
+  </ul>
+`;
