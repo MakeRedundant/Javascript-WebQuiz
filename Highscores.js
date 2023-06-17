@@ -2,6 +2,7 @@
 var highScores = [];
 
 var clear = document.querySelector("#clear");
+var goBackButton = document.querySelector("a[href='index.html']");
 
 // Initialise
 findHighscore();
