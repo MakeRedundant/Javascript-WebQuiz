@@ -6,7 +6,6 @@ var clear = document.querySelector("#clear");
 // Initialise
 findHighscore();
 highScoresList();
-sortHighscores()
 
 //Functions for highscore list, dynamically generates a li for each new highscore saved
 function highScoresList() {
