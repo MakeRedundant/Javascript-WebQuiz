@@ -3,7 +3,7 @@ var timerCount = 0; //timer is initially set at 0 before being set at 45
 var start; //for the start button
 var scoreCount; //defines score
 var questionNumber; //defines which question to start
-var EnterInitials; 
+var EnterInitials;
 
 var startButton = document.querySelector("#start");
 var btnAnswer0 = document.querySelector("#btnAnswer0");
@@ -13,10 +13,7 @@ var btnAnswer3 = document.querySelector("#btnAnswer3");
 var EnterInitials = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 
-//Initilise 
-var sortHighscores;
-
-//Sound 
+//Sound
 var correctSound = new Audio("./assets/Sound/Correct.mp3"); //need the new keyword to create an instance of an object, so a new audio object here
 var incorrectSound = new Audio("./assets/Sound/Incorrect.mp3");
 
@@ -84,7 +81,6 @@ function questionsAnswer(answer) {
     quizFeedback("Correct!");
     scoreCount++;
     questionNumber++;
-
   } else {
     console.log("Wrong!");
     incorrectSound.play();
@@ -93,7 +89,8 @@ function questionsAnswer(answer) {
     document.querySelector("#timer").textContent = timerCount; // Updates timer
     questionNumber++;
   }
-  if (questionNumber > questions.length - 1) { //array indices start from 0 the last question will have an index of questions.length
+  if (questionNumber > questions.length - 1) {
+    //array indices start from 0 the last question will have an index of questions.length
     goScorePage();
   } else {
     getQuestionsText();
@@ -111,32 +108,32 @@ function goScorePage() {
     " out of " +
     questions.length +
     " correct answers! ";
-
 }
 
 //High Scores function
 function goHighscores() {
-  if (document.querySelector("#initials"). value ==="") {
-    quizFeedback("Please, enter your initials here to save your score")
-    
+  if (document.querySelector("#initials").value === "") {
+    quizFeedback("Please, enter your initials here to save your score");
   } else {
-    EnterInitials = (document.querySelector("#initials").value);
+    EnterInitials = document.querySelector("#initials").value;
     saveHighscore();
-    window.location.href="Highscores.html";
+    window.location.href = "Highscores.html";
   }
 }
 
 function saveHighscore() {
   var highScoresData = localStorage.getItem("highscores"); //for the highscores, saving systems, need to set as an empty array or it will return Uncaught TypeError: Cannot read properties of undefined (reading 'push')
   var highScores = highScoresData ? JSON.parse(highScoresData) : []; // Here i added highScoresData to check if it truthy or empty or null (error)// ? is a conditional operator used for short hand if statements
-  var scoreCount = { // "Unexpected end of JSON input happens when i try to parse JSON that is incomplete or non valid. 
+  var scoreCount = {
+    // "Unexpected end of JSON input happens when i try to parse JSON that is incomplete or non valid.
     initials: EnterInitials,
-    scoreCount: timerCount
+    scoreCount: timerCount,
   };
   console.log("highscores", highScores);
   highScores.push(scoreCount);
-  highScores.sort(function(a, b) { // function that sorts the highScores array using the sort method
-    return b.scoreCount - a.scoreCount; //it subracts the scoreCount values so you get it done in a descending order, 
+  highScores.sort(function (a, b) {
+    // function that sorts the highScores array using the sort method
+    return b.scoreCount - a.scoreCount; //it subracts the scoreCount values so you get it done in a descending order,
   });
   highScores = JSON.stringify(highScores);
   localStorage.setItem("highscores", highScores);
@@ -180,18 +177,19 @@ document
     questionsAnswer(3);
   });
 
-  // Initials submit 
-  //One for click and keydown
-  document.querySelector("#initials").addEventListener("keydown", function(event) {
+// Initials submit
+//One for click and keydown
+document
+  .querySelector("#initials")
+  .addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       console.log("Initials submitted");
       goHighscores();
     }
   });
-  document.querySelector("#submit").addEventListener("click", function(event) {
-    event.preventDefault();
-    console.log("Initials submitted");
-    goHighscores();
-  });
-
+document.querySelector("#submit").addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("Initials submitted");
+  goHighscores();
+});
